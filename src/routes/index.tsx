@@ -186,6 +186,7 @@ function Works({
   setFilter: (c: Category) => void;
   filtered: typeof works;
 }) {
+  const [selected, setSelected] = useState<typeof works[0] | null>(null);
   const cats: Category[] = ["All", "Environments", "Educational", "Concept"];
   return (
     <section id="work" className="py-24 border-t border-border">
@@ -218,7 +219,8 @@ function Works({
           {filtered.map((w) => (
             <article
               key={w.title}
-              className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all ${w.span ?? ""}`}
+              onClick={() => setSelected(w)}
+              className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all cursor-pointer ${w.span ?? ""}`}
               style={{ background: w.gradient }}
             >
               {w.image && (w.image.toLowerCase().endsWith(".mp4") || w.image.toLowerCase().endsWith(".mov")) ? (
@@ -236,6 +238,30 @@ function Works({
             </article>
           ))}
         </div>
+
+        {selected && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 cursor-pointer backdrop-blur-sm"
+            onClick={() => setSelected(null)}
+          >
+            <div 
+              className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center cursor-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setSelected(null)}
+                className="absolute top-4 right-4 z-50 text-white bg-black/50 hover:bg-black/80 rounded-full w-10 h-10 flex items-center justify-center transition-colors text-xl"
+              >
+                ✕
+              </button>
+              {selected.image && (selected.image.toLowerCase().endsWith(".mp4") || selected.image.toLowerCase().endsWith(".mov")) ? (
+                <video src={selected.image} autoPlay loop controls className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" />
+              ) : selected.image ? (
+                <img src={selected.image} alt={selected.title} className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" />
+              ) : null}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -248,7 +274,7 @@ function About() {
         <div className="md:col-span-2">
           <div className="aspect-[4/5] rounded-3xl border border-border shadow-[var(--shadow-lift)] overflow-hidden relative bg-muted/40">
             <img 
-              src="/profile.jpg" 
+              src="https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/profile.jpg" 
               alt="Thapasya Shivaprakash" 
               className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
