@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Thapasya Shivaprakash — Concept Art & Storyboarding" },
+      { name: "description", content: "Portfolio of Thapasya Shivaprakash, concept artist and storyboarder specializing in visual development, educational illustration, and AI-assisted ideation." },
+      { property: "og:description", content: "Portfolio of Thapasya Shivaprakash, concept artist and storyboarder specializing in visual development, educational illustration, and AI-assisted ideation." },
+      { name: "twitter:description", content: "Portfolio of Thapasya Shivaprakash, concept artist and storyboarder specializing in visual development, educational illustration, and AI-assisted ideation." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c0ecbe9-bbba-4b55-ab92-0d555c0d4003/id-preview-917dd58e--d6021717-5b61-402f-ab36-2d7d95cfdf45.lovable.app-1783440362699.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c0ecbe9-bbba-4b55-ab92-0d555c0d4003/id-preview-917dd58e--d6021717-5b61-402f-ab36-2d7d95cfdf45.lovable.app-1783440362699.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

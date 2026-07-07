@@ -1,12 +1,29 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-import { Category, categories, works } from "../lib/portfolio-data";
+type Category = "All" | "Environments" | "Educational" | "Concept";
+
+const works: {
+  title: string;
+  tag: string;
+  category: Exclude<Category, "All">;
+  gradient: string;
+  span?: string;
+}[] = [
+  { title: "Kulfi Vendor Scene", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-ochre)", span: "md:col-span-2 md:row-span-2" },
+  { title: "Paper Boat River Landscape", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-sage)" },
+  { title: "Outdoor Magic Show", tag: "Event Concept", category: "Concept", gradient: "var(--gradient-dusk)" },
+  { title: "Ten Little Stars", tag: "Children's Illustration", category: "Educational", gradient: "var(--gradient-mist)" },
+  { title: "School Courtyard & Flag", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-warm)", span: "md:col-span-2" },
+  { title: "Vintage Clock Room", tag: "Interior Design", category: "Environments", gradient: "var(--gradient-clay)" },
+  { title: "Cozy House Exterior", tag: "Exterior Concept", category: "Environments", gradient: "var(--gradient-ochre)" },
+  { title: "Dining Room Still Life", tag: "Interior Concept", category: "Concept", gradient: "var(--gradient-warm)" },
+  { title: "Bus No. 10 Journey", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-sage)", span: "md:col-span-2" },
+];
 
 const tools = [
   "Photoshop", "Storyboard Pro", "Blender", "ZBrush", "Maya",
@@ -130,29 +147,9 @@ function Works({
   setFilter: (c: Category) => void;
   filtered: typeof works;
 }) {
-  const cats: Category[] = categories;
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [galleryIndex, setGalleryIndex] = useState<number>(0);
-
-  // Reset gallery index when changing selected work
-  useEffect(() => {
-    setGalleryIndex(0);
-  }, [selectedIndex]);
-
-  // Handle keyboard navigation for the modal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedIndex === null) return;
-      if (e.key === "Escape") setSelectedIndex(null);
-      if (e.key === "ArrowRight") setSelectedIndex((prev) => (prev! + 1) % filtered.length);
-      if (e.key === "ArrowLeft") setSelectedIndex((prev) => (prev! - 1 + filtered.length) % filtered.length);
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex, filtered.length]);
-
+  const cats: Category[] = ["All", "Environments", "Educational", "Concept"];
   return (
-    <section id="work" className="py-24 border-t border-border relative">
+    <section id="work" className="py-24 border-t border-border">
       <div className="container-page">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
@@ -165,7 +162,7 @@ function Works({
             {cats.map((c) => (
               <button
                 key={c}
-                onClick={() => { setFilter(c); setSelectedIndex(null); }}
+                onClick={() => setFilter(c)}
                 className={`px-4 py-2 rounded-full text-sm border transition-colors ${
                   filter === c
                     ? "bg-primary text-primary-foreground border-primary"
@@ -178,136 +175,24 @@ function Works({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[280px] gap-5">
-          {filtered.map((w, index) => (
-            <button
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] gap-5">
+          {filtered.map((w) => (
+            <article
               key={w.title}
-              onClick={() => setSelectedIndex(index)}
-              className={`group text-left relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all ${w.span ?? ""}`}
-              style={{ background: "var(--gradient-sage)" }}
+              className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all ${w.span ?? ""}`}
+              style={{ background: w.gradient }}
             >
-              {w.url.endsWith(".mp4") || w.url.endsWith(".mov") ? (
-                <video src={w.url} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              ) : (
-                <img src={w.url} alt={w.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="relative h-full w-full flex flex-col justify-end p-6 text-white pointer-events-none">
-                <span className="text-xs uppercase tracking-[0.2em] opacity-80">{w.category}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="relative h-full w-full flex flex-col justify-end p-6 text-white">
+                <span className="text-xs uppercase tracking-[0.2em] opacity-80">{w.tag}</span>
                 <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight">
                   {w.title}
                 </h3>
               </div>
-            </button>
+            </article>
           ))}
         </div>
       </div>
-
-      {/* Lightbox Modal */}
-      {selectedIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <button 
-            onClick={() => setSelectedIndex(null)} 
-            className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white bg-black/40 hover:bg-black/60 rounded-full p-2 transition-all z-50"
-          >
-            <X size={24} />
-          </button>
-          
-          <button 
-            onClick={(e) => { e.stopPropagation(); setSelectedIndex((prev) => (prev! - 1 + filtered.length) % filtered.length); }} 
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/40 hover:bg-black/60 rounded-full p-3 transition-all z-50"
-          >
-            <ChevronLeft size={32} />
-          </button>
-          
-          <button 
-            onClick={(e) => { e.stopPropagation(); setSelectedIndex((prev) => (prev! + 1) % filtered.length); }} 
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-black/40 hover:bg-black/60 rounded-full p-3 transition-all z-50"
-          >
-            <ChevronRight size={32} />
-          </button>
-
-          <div 
-            className="bg-background rounded-2xl overflow-hidden max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex-1 bg-black relative flex items-center justify-center min-h-[40vh] md:min-h-0 group/gallery">
-              {(() => {
-                const work = filtered[selectedIndex];
-                const hasGallery = work.gallery && work.gallery.length > 0;
-                const mediaUrl = hasGallery && galleryIndex > 0 ? work.gallery![galleryIndex - 1] : work.url;
-                
-                return (
-                  <>
-                    {mediaUrl.endsWith(".mp4") || mediaUrl.endsWith(".mov") ? (
-                      <video src={mediaUrl} autoPlay controls playsInline className="max-w-full max-h-[50vh] md:max-h-[90vh] object-contain" />
-                    ) : (
-                      <img src={mediaUrl} alt={work.title} className="max-w-full max-h-[50vh] md:max-h-[90vh] object-contain" />
-                    )}
-
-                    {hasGallery && (
-                      <>
-                        {/* Gallery Inner Navigation */}
-                        {galleryIndex > 0 && (
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); setGalleryIndex(prev => prev - 1); }}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/80 rounded-full p-2 opacity-0 group-hover/gallery:opacity-100 transition-opacity"
-                          >
-                            <ChevronLeft size={24} />
-                          </button>
-                        )}
-                        {galleryIndex < work.gallery!.length && (
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); setGalleryIndex(prev => prev + 1); }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/80 rounded-full p-2 opacity-0 group-hover/gallery:opacity-100 transition-opacity"
-                          >
-                            <ChevronRight size={24} />
-                          </button>
-                        )}
-                        
-                        {/* Pagination Dots */}
-                        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                          <button 
-                            onClick={() => setGalleryIndex(0)}
-                            className={`w-2 h-2 rounded-full transition-colors ${galleryIndex === 0 ? "bg-white" : "bg-white/40"}`}
-                          />
-                          {work.gallery!.map((_, idx) => (
-                            <button
-                              key={idx}
-                              onClick={() => setGalleryIndex(idx + 1)}
-                              className={`w-2 h-2 rounded-full transition-colors ${galleryIndex === idx + 1 ? "bg-white" : "bg-white/40"}`}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </>
-                );
-              })()}
-            </div>
-            <div className="w-full md:w-[400px] p-8 md:p-10 flex flex-col overflow-y-auto bg-card border-l border-border">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-                {filtered[selectedIndex].category}
-              </span>
-              <h3 className="font-display text-3xl md:text-4xl leading-tight mb-6">
-                {filtered[selectedIndex].title}
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {filtered[selectedIndex].description}
-              </p>
-              
-              <div className="mt-auto pt-8">
-                <button 
-                  onClick={() => setSelectedIndex(null)}
-                  className="w-full py-3 rounded-full border border-border hover:bg-muted transition-colors font-medium text-sm"
-                >
-                  Close Viewer
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
@@ -317,10 +202,9 @@ function About() {
     <section id="about" className="py-24 border-t border-border bg-muted/40">
       <div className="container-page grid md:grid-cols-5 gap-12 items-start">
         <div className="md:col-span-2">
-          <img
-            src="/profile.png"
-            alt="Thapasya Profile"
-            className="w-full aspect-[4/5] object-cover rounded-3xl border border-border shadow-[var(--shadow-lift)]"
+          <div
+            className="aspect-[4/5] rounded-3xl border border-border shadow-[var(--shadow-lift)]"
+            style={{ background: "var(--gradient-clay)" }}
           />
         </div>
         <div className="md:col-span-3">
