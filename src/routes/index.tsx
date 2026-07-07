@@ -312,11 +312,6 @@ function Footer() {
     <footer className="border-t border-border py-10">
       <div className="container-page flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <p>© 2026 Thapasya Shivaprakash. All rights reserved.</p>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-accent transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-accent transition-colors">ArtStation</a>
-          <a href="#" className="hover:text-accent transition-colors">Instagram</a>
-        </div>
       </div>
     </footer>
   );
