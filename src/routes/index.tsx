@@ -13,16 +13,17 @@ const works: {
   category: Exclude<Category, "All">;
   gradient: string;
   span?: string;
+  image?: string;
 }[] = [
-  { title: "Kulfi Vendor Scene", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-ochre)", span: "md:col-span-2 md:row-span-2" },
-  { title: "Paper Boat River Landscape", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-sage)" },
-  { title: "Outdoor Magic Show", tag: "Event Concept", category: "Concept", gradient: "var(--gradient-dusk)" },
-  { title: "Ten Little Stars", tag: "Children's Illustration", category: "Educational", gradient: "var(--gradient-mist)" },
-  { title: "School Courtyard & Flag", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-warm)", span: "md:col-span-2" },
-  { title: "Vintage Clock Room", tag: "Interior Design", category: "Environments", gradient: "var(--gradient-clay)" },
-  { title: "Cozy House Exterior", tag: "Exterior Concept", category: "Environments", gradient: "var(--gradient-ochre)" },
-  { title: "Dining Room Still Life", tag: "Interior Concept", category: "Concept", gradient: "var(--gradient-warm)" },
-  { title: "Bus No. 10 Journey", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-sage)", span: "md:col-span-2" },
+  { title: "Kulfi Vendor Scene", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-ochre)", span: "md:col-span-2 md:row-span-2", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Kulfi-wala-scene-2.jpg" },
+  { title: "Paper Boat River Landscape", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/paper-boat-key-art-1a-.jpg" },
+  { title: "Outdoor Magic Show", tag: "Event Concept", category: "Concept", gradient: "var(--gradient-dusk)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/magical%20%20final.jpg" },
+  { title: "Ten Little Stars", tag: "Children's Illustration", category: "Educational", gradient: "var(--gradient-mist)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/10-little-stars.jpg" },
+  { title: "School Courtyard & Flag", tag: "Environment Design", category: "Environments", gradient: "var(--gradient-warm)", span: "md:col-span-2", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/MERA-DESH.jpg" },
+  { title: "Vintage Clock Room", tag: "Interior Design", category: "Environments", gradient: "var(--gradient-clay)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-clock-scen-1-with-car.jpg" },
+  { title: "Cozy House Exterior", tag: "Exterior Concept", category: "Environments", gradient: "var(--gradient-ochre)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-dicory-scene-2a.jpg" },
+  { title: "Dining Room Still Life", tag: "Interior Concept", category: "Concept", gradient: "var(--gradient-warm)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/fruits-scene-1a.jpg" },
+  { title: "Bus No. 10 Journey", tag: "Educational Illustration", category: "Educational", gradient: "var(--gradient-sage)", span: "md:col-span-2", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/BUS-NO-10-1.jpg" },
 ];
 
 const tools = [
@@ -182,7 +183,10 @@ function Works({
               className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all ${w.span ?? ""}`}
               style={{ background: w.gradient }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+              {w.image && (
+                <img src={w.image} alt={w.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
               <div className="relative h-full w-full flex flex-col justify-end p-6 text-white">
                 <span className="text-xs uppercase tracking-[0.2em] opacity-80">{w.tag}</span>
                 <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight">
