@@ -78,16 +78,16 @@ const tools = [
       {
         category: "Video Editing & Motion Graphics",
         items: ["Adobe Premiere Pro", "Adobe After Effects"],
-      },
-      {
-        category: "3D Production & Compositing",
-        items: ["Autodesk Maya", "Cinema 4D", "3ds Max", "The Foundry Nuke"],
       }
     ]
   },
   {
     set: "Knowledge",
     groups: [
+      {
+        category: "3D Production & Compositing",
+        items: ["Autodesk Maya", "Cinema 4D", "3ds Max", "The Foundry Nuke"],
+      },
       {
         category: "AI-Assisted Ideation & Generation",
         items: ["Midjourney", "Leonardo.AI", "Adobe Firefly", "Runway", "Gemini", "ChatGPT", "Copilot"],
