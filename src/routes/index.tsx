@@ -97,6 +97,29 @@ const experience = [
   },
 ];
 
+const education = [
+  {
+    degree: "Master of Visual Arts (MVA)",
+    school: "Bangalore University",
+    detail: "Refined my advanced aesthetic sensibilities and elevated my approach to visual storytelling and conceptual design.",
+  },
+  {
+    degree: "Bachelor of Visual Arts (BVA)",
+    school: "Hampi University",
+    detail: "Mastered the foundational pillars of traditional art, graduating with the highest distinction as University Topper.",
+  },
+  {
+    degree: "International Program in Visual Arts and Design (IPVAD)",
+    school: "MAAC",
+    detail: "Bridged my classical art background with cutting-edge industry standards, mastering digital pipelines and cinematic techniques.",
+  },
+  {
+    degree: "Pre-University Course (PUC - PCMB)",
+    school: "MES Kishore Kendra",
+    detail: "Cultivated a strong analytical foundation in Physics, Chemistry, Mathematics, and Biology.",
+  },
+];
+
 function Portfolio() {
   const [filter, setFilter] = useState<Category>("All");
   const filtered = filter === "All" ? works : works.filter((w) => w.category === filter);
@@ -319,12 +342,10 @@ function About() {
             I bring untold stories to life.
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            Whether I'm blocking out a dynamic action sequence in a storyboard or doing
-            the final lighting pass on a 3D render, my goal is always to serve the narrative.
+            A limitless creative driven by a passion for visual storytelling, I specialize in crafting breathtaking concept art, immersive environments, and cinematic storyboards. I thrive on tackling complex creative challenges, seamlessly blending my foundational 2D artistry—including high-impact poster design—with a complete mastery of the 3D production workflow.
           </p>
           <p className="text-lg text-muted-foreground mb-10">
-            With a strong foundation in traditional art — an MVA from Bangalore University
-            and University Topper in my BVA — I bridge initial concepts and final production assets.
+            To bring these narratives fully to life, I deliver striking visuals across all mediums by integrating professional video editing and motion graphics.
           </p>
 
           <h3 className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">
@@ -371,6 +392,30 @@ function Resume() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-3">
+            Education
+          </p>
+          <h2 className="text-4xl md:text-5xl mb-14 max-w-3xl">
+            Foundations in art and design.
+          </h2>
+          <div className="space-y-10">
+            {education.map((e) => (
+              <div
+                key={e.degree + e.school}
+                className="grid md:grid-cols-4 gap-6 pb-10 border-b border-border last:border-0"
+              >
+                <div className="md:col-span-4">
+                  <h3 className="font-display text-2xl">
+                    {e.degree} <span className="text-accent">· {e.school}</span>
+                  </h3>
+                  <p className="mt-3 text-muted-foreground max-w-2xl">{e.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
