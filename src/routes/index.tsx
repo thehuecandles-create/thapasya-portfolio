@@ -228,13 +228,6 @@ function Works({
               ) : w.image ? (
                 <img src={w.image} alt={w.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               ) : null}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="relative h-full w-full flex flex-col justify-end p-6 text-white">
-                <span className="text-xs uppercase tracking-[0.2em] opacity-80">{w.tag}</span>
-                <h3 className="mt-2 font-display text-2xl md:text-3xl leading-tight">
-                  {w.title}
-                </h3>
-              </div>
             </article>
           ))}
         </div>
