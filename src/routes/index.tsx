@@ -69,21 +69,35 @@ const works: {
 
 const tools = [
   {
-    category: "2D & Graphic Design",
-    items: ["Adobe Photoshop (Primary)", "Adobe Illustrator (Primary)", "CorelDRAW (Primary)"],
+    set: "Expertise",
+    groups: [
+      {
+        category: "2D & Graphic Design",
+        items: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW"],
+      },
+      {
+        category: "Video Editing & Motion Graphics",
+        items: ["Adobe Premiere Pro", "Adobe After Effects"],
+      },
+      {
+        category: "3D Production & Compositing",
+        items: ["Autodesk Maya", "Cinema 4D", "3ds Max", "The Foundry Nuke"],
+      }
+    ]
   },
   {
-    category: "Video Editing & Motion Graphics",
-    items: ["Adobe Premiere Pro (Primary)", "Adobe After Effects (Primary) with complete knowledge with expertise"],
-  },
-  {
-    category: "3D Production & Compositing",
-    items: ["Autodesk Maya", "Cinema 4D", "3ds Max", "The Foundry Nuke (For advanced node-based compositing)"],
-  },
-  {
-    category: "AI-Assisted Ideation & Generation",
-    items: ["Midjourney", "Leonardo.AI", "Adobe Firefly", "Runway", "Gemini", "ChatGPT", "Copilot", "Canva"],
-  },
+    set: "Knowledge",
+    groups: [
+      {
+        category: "AI-Assisted Ideation & Generation",
+        items: ["Midjourney", "Leonardo.AI", "Adobe Firefly", "Runway", "Gemini", "ChatGPT", "Copilot"],
+      },
+      {
+        category: "Other Tools",
+        items: ["Canva"],
+      }
+    ]
+  }
 ];
 
 const experience = [
@@ -364,18 +378,25 @@ function About() {
           <h3 className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">
             Software & tools
           </h3>
-          <div className="flex flex-col gap-6 pb-4">
-            {tools.map((group) => (
-              <div key={group.category}>
-                <h4 className="text-sm font-semibold mb-3 text-foreground">{group.category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((t) => (
-                    <span
-                      key={t}
-                      className="px-3 py-1.5 rounded-full text-sm border border-border bg-background"
-                    >
-                      {t}
-                    </span>
+          <div className="flex flex-col gap-10 pb-4">
+            {tools.map((toolSet) => (
+              <div key={toolSet.set}>
+                <h4 className="text-xl font-display mb-5 border-b border-border pb-2">{toolSet.set}</h4>
+                <div className="flex flex-col gap-6">
+                  {toolSet.groups.map((group) => (
+                    <div key={group.category}>
+                      <h5 className="text-sm font-semibold mb-3 text-foreground">{group.category}</h5>
+                      <div className="flex flex-wrap gap-2">
+                        {group.items.map((t) => (
+                          <span
+                            key={t}
+                            className="px-3 py-1.5 rounded-full text-sm border border-border bg-background"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
