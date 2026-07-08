@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-type Category = "All" | "Environment Concept Art" | "Story Book Designs" | "Story Board" | "3D Asset Designs" | "Storyboard Animatics" | "Color Correction" | "Character Designing" | "Sketching" | "Digital Painting" | "Posters" | "Frame By Frame Animation";
+type Category = "All" | "Color Correction and Retouchup" | "Environment Concept Art" | "Story Book Designs" | "Story Board" | "3D Asset Designs" | "Storyboard Animatics" | "Character Designing" | "Sketching" | "Digital Painting" | "Posters" | "Frame By Frame Animation";
 
 const works: {
   title: string;
@@ -60,13 +60,13 @@ const works: {
   { title: "Storyboard (animatics)", tag: "Portfolio Artwork", category: "Storyboard Animatics", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Storyboard%20%28animatics%29%20%281%29.mp4" },
   { title: "Ts Project 1 Vidhanasoudha", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/TS-PROJECT-1-VIDHANASOUDHA.jpg" },
   { title: "Veena Store", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Veena-store.jpg" },
-  { title: "Color Correction", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
-  { title: "Color Correction 6", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-6.jpg" },
-  { title: "Color Correction 4", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-4.jpg" },
-  { title: "Color Correction 5", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-5.jpg" },
-  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
-  { title: "Color Correction A", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-a.jpg" },
-  { title: "Color Correction B", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-b.jpg" },
+  { title: "Color Correction", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
+  { title: "Color Correction 6", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-6.jpg" },
+  { title: "Color Correction 4", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-4.jpg" },
+  { title: "Color Correction 5", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-5.jpg" },
+  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
+  { title: "Color Correction A", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-a.jpg" },
+  { title: "Color Correction B", tag: "Portfolio Artwork", category: "Color Correction and Retouchup", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-b.jpg" },
 ];
 
 const tools = [
@@ -242,7 +242,7 @@ function Works({
   filtered: typeof works;
 }) {
   const [selected, setSelected] = useState<typeof works[0] | null>(null);
-  const cats: Category[] = ["All", "Environment Concept Art", "Story Book Designs", "Story Board", "3D Asset Designs", "Storyboard Animatics", "Color Correction", "Character Designing", "Sketching", "Digital Painting", "Posters", "Frame By Frame Animation"];
+  const cats: Category[] = ["All", "Color Correction and Retouchup", "Environment Concept Art", "Story Book Designs", "Story Board", "3D Asset Designs", "Storyboard Animatics", "Character Designing", "Sketching", "Digital Painting", "Posters", "Frame By Frame Animation"];
   return (
     <section id="work" className="py-24 border-t border-border">
       <div className="container-page">
