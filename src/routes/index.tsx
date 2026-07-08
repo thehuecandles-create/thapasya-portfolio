@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-type Category = "All" | "Environments" | "Educational" | "Concept";
+type Category = "All" | "Environment Concept Art" | "Story Book Designs" | "Story Board" | "3D Asset Designs" | "Storyboard Animatics" | "Color Correction" | "Character Designing" | "Sketching" | "Digital Painting" | "Posters" | "Frame By Frame Animation";
 
 const works: {
   title: string;
@@ -15,53 +15,53 @@ const works: {
   span?: string;
   image?: string;
 }[] = [
-  { title: "10 Little Stars", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/10-little-stars.jpg" },
-  { title: "Character Concept 1a", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%201a.jpg" },
-  { title: "Character Concept 2a", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%202a.jpg" },
-  { title: "Building Concept 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%201.jpg" },
-  { title: "Building Concept 2", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%202%20-%20Copy.jpg" },
-  { title: "Concept Art 2", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/2.jpg" },
-  { title: "Character Concept 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/30th%20Nov%20Charecter%201.jpg" },
-  { title: "Bloom Logo Intro Animation", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Bloom_logo_intro%20animation%20Final.mp4" },
-  { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
-  { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad (1080 X 1350 Px)", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281080%20x%201350%20px%29.jpg" },
-  { title: "Bus No 10 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/BUS-NO-10-1.jpg" },
-  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
-  { title: "Color Correction", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
-  { title: "Character Concept Dog 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Dec%207th%20characters%20dog%201.jpg" },
-  { title: "Door Concept Art", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Door%20Concept%20Art.jpg" },
-  { title: "Finance Company Webinar Linkedin Video Ad", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Finance%20Company%20Webinar%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
-  { title: "Fruits Scene 1a", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/fruits-scene-1a.jpg" },
-  { title: "Grey Videographic Polaroid Creative Texture Background Motivational Quote Instagram Reel", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Grey%20Videographic%20Polaroid%20Creative%20Texture%20Background%20Motivational%20Quote%20Instagram%20Reel.mp4" },
-  { title: "Hicory Clock Scen 1 With Car", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-clock-scen-1-with-car.jpg" },
-  { title: "Hicory Dicory Scene 2a", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-dicory-scene-2a.jpg" },
-  { title: "I Know The Letter E Frame 2aa", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/I%20KNOW%20THE%20LETTER%20E%20FRAME%202aa.jpg" },
-  { title: "Artwork 7766", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7766.JPG" },
-  { title: "Artwork 7768", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7768.JPG" },
-  { title: "Artwork 7776", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7776.JPG" },
-  { title: "Artwork 7777", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7777.JPG" },
-  { title: "Independance Day 2025", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/INDEPENDANCE-DAY-2025.jpg" },
-  { title: "Independence Day Poster 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/independence%20day%20poster%201%20copy.jpg" },
-  { title: "Kulfi Wala Scene 2", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Kulfi-wala-scene-2.jpg" },
-  { title: "Magical", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/magical%20%20final.jpg" },
-  { title: "Magical 13", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Magical-13.jpg" },
-  { title: "Mega Sale Twitter Post Design Made With Postermywall", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Mega%20Sale%20Twitter%20Post%20Design%20-%20Made%20with%20PosterMyWall%20%284%29.jpg" },
-  { title: "Mera Desh", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/MERA-DESH.jpg" },
-  { title: "Creative Concept", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/New%20Project%201%20%281%29.jpg" },
-  { title: "Orange Professional Course Instagram Post", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Orange%20Professional%20Course%20Instagram%20Post.png" },
-  { title: "Paper Boat Key Art 1a", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/paper-boat-key-art-1a-.jpg" },
-  { title: "Rabbit Character (my Friendly Pets)", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Rabbit%20Character%20%28My%20Friendly%20Pets%29.jpg" },
-  { title: "Raju Aur Uaske Papa Video", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Raju%20aur%20uaske%20papa%20video.mp4" },
-  { title: "Red And White Modern 3.3 Sale Instagram Post", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Red%20and%20White%20Modern%203.3%20Sale%20Instagram%20Post.jpg" },
-  { title: "Shankarnag", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/SHANKARNAG%20FINAL.mov" },
-  { title: "Sketch 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/sketch%201.jpg" },
-  { title: "Slide 01", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/slide%2001.jpg" },
-  { title: "Slide 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/slide%201.jpg" },
-  { title: "Story 1", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/story-1.jpg" },
-  { title: "Story 2", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/story-2.jpg" },
-  { title: "Storyboard (animatics)", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Storyboard%20%28animatics%29%20%281%29.mp4" },
-  { title: "Ts Project 1 Vidhanasoudha", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/TS-PROJECT-1-VIDHANASOUDHA.jpg" },
-  { title: "Veena Store", tag: "Portfolio Artwork", category: "Concept", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Veena-store.jpg" },
+  { title: "10 Little Stars", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/10-little-stars.jpg" },
+  { title: "Character Concept 1a", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%201a.jpg" },
+  { title: "Character Concept 2a", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%202a.jpg" },
+  { title: "Building Concept 1", tag: "Portfolio Artwork", category: "3D Asset Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%201.jpg" },
+  { title: "Building Concept 2", tag: "Portfolio Artwork", category: "3D Asset Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%202%20-%20Copy.jpg" },
+  { title: "Concept Art 2", tag: "Portfolio Artwork", category: "Digital Painting", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/2.jpg" },
+  { title: "Character Concept 1", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/30th%20Nov%20Charecter%201.jpg" },
+  { title: "Bloom Logo Intro Animation", tag: "Portfolio Artwork", category: "Frame By Frame Animation", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Bloom_logo_intro%20animation%20Final.mp4" },
+  { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
+  { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad (1080 X 1350 Px)", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281080%20x%201350%20px%29.jpg" },
+  { title: "Bus No 10 1", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/BUS-NO-10-1.jpg" },
+  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
+  { title: "Color Correction", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
+  { title: "Character Concept Dog 1", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Dec%207th%20characters%20dog%201.jpg" },
+  { title: "Door Concept Art", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Door%20Concept%20Art.jpg" },
+  { title: "Finance Company Webinar Linkedin Video Ad", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Finance%20Company%20Webinar%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
+  { title: "Fruits Scene 1a", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/fruits-scene-1a.jpg" },
+  { title: "Grey Videographic Polaroid Creative Texture Background Motivational Quote Instagram Reel", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Grey%20Videographic%20Polaroid%20Creative%20Texture%20Background%20Motivational%20Quote%20Instagram%20Reel.mp4" },
+  { title: "Hicory Clock Scen 1 With Car", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-clock-scen-1-with-car.jpg" },
+  { title: "Hicory Dicory Scene 2a", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Hicory-dicory-scene-2a.jpg" },
+  { title: "I Know The Letter E Frame 2aa", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/I%20KNOW%20THE%20LETTER%20E%20FRAME%202aa.jpg" },
+  { title: "Artwork 7766", tag: "Portfolio Artwork", category: "Story Board", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7766.JPG" },
+  { title: "Artwork 7768", tag: "Portfolio Artwork", category: "Story Book Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7768.JPG" },
+  { title: "Artwork 7776", tag: "Portfolio Artwork", category: "Story Book Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7776.JPG" },
+  { title: "Artwork 7777", tag: "Portfolio Artwork", category: "Story Book Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/IMG_7777.JPG" },
+  { title: "Independance Day 2025", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/INDEPENDANCE-DAY-2025.jpg" },
+  { title: "Independence Day Poster 1", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/independence%20day%20poster%201%20copy.jpg" },
+  { title: "Kulfi Wala Scene 2", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Kulfi-wala-scene-2.jpg" },
+  { title: "Magical", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/magical%20%20final.jpg" },
+  { title: "Magical 13", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Magical-13.jpg" },
+  { title: "Mega Sale Twitter Post Design Made With Postermywall", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Mega%20Sale%20Twitter%20Post%20Design%20-%20Made%20with%20PosterMyWall%20%284%29.jpg" },
+  { title: "Mera Desh", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/MERA-DESH.jpg" },
+  { title: "Creative Concept", tag: "Portfolio Artwork", category: "Digital Painting", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/New%20Project%201%20%281%29.jpg" },
+  { title: "Orange Professional Course Instagram Post", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Orange%20Professional%20Course%20Instagram%20Post.png" },
+  { title: "Paper Boat Key Art 1a", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/paper-boat-key-art-1a-.jpg" },
+  { title: "Rabbit Character (my Friendly Pets)", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Rabbit%20Character%20%28My%20Friendly%20Pets%29.jpg" },
+  { title: "Raju Aur Uaske Papa Video", tag: "Portfolio Artwork", category: "Frame By Frame Animation", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Raju%20aur%20uaske%20papa%20video.mp4" },
+  { title: "Red And White Modern 3.3 Sale Instagram Post", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Red%20and%20White%20Modern%203.3%20Sale%20Instagram%20Post.jpg" },
+  { title: "Shankarnag", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/SHANKARNAG%20FINAL.mov" },
+  { title: "Sketch 1", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/sketch%201.jpg" },
+  { title: "Slide 01", tag: "Portfolio Artwork", category: "Story Board", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/slide%2001.jpg" },
+  { title: "Slide 1", tag: "Portfolio Artwork", category: "Story Board", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/slide%201.jpg" },
+  { title: "Story 1", tag: "Portfolio Artwork", category: "Story Book Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/story-1.jpg" },
+  { title: "Story 2", tag: "Portfolio Artwork", category: "Story Book Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/story-2.jpg" },
+  { title: "Storyboard (animatics)", tag: "Portfolio Artwork", category: "Storyboard Animatics", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Storyboard%20%28animatics%29%20%281%29.mp4" },
+  { title: "Ts Project 1 Vidhanasoudha", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/TS-PROJECT-1-VIDHANASOUDHA.jpg" },
+  { title: "Veena Store", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Veena-store.jpg" },
 ];
 
 const tools = [
@@ -187,7 +187,7 @@ function Works({
   filtered: typeof works;
 }) {
   const [selected, setSelected] = useState<typeof works[0] | null>(null);
-  const cats: Category[] = ["All", "Environments", "Educational", "Concept"];
+  const cats: Category[] = ["All", "Environment Concept Art", "Story Book Designs", "Story Board", "3D Asset Designs", "Storyboard Animatics", "Color Correction", "Character Designing", "Sketching", "Digital Painting", "Posters", "Frame By Frame Animation"];
   return (
     <section id="work" className="py-24 border-t border-border">
       <div className="container-page">
@@ -198,7 +198,7 @@ function Works({
             </p>
             <h2 className="text-4xl md:text-5xl">Environments, illustration, and story.</h2>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex overflow-x-auto whitespace-nowrap gap-2 pb-4 scrollbar-hide">
             {cats.map((c) => (
               <button
                 key={c}
@@ -304,7 +304,7 @@ function About() {
           <h3 className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">
             Software & tools
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex overflow-x-auto whitespace-nowrap gap-2 pb-4 scrollbar-hide">
             {tools.map((t) => (
               <span
                 key={t}
