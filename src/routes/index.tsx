@@ -27,8 +27,6 @@ const works: {
   { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
   { title: "Blue & Red Modern Creative Online Course Linkedin Video Ad (1080 X 1350 Px)", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Blue%20%26%20Red%20Modern%20Creative%20Online%20Course%20LinkedIn%20Video%20Ad%20%281080%20x%201350%20px%29.jpg" },
   { title: "Bus No 10 1", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/BUS-NO-10-1.jpg" },
-  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
-  { title: "Color Correction", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
   { title: "Character Concept Dog 1", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Dec%207th%20characters%20dog%201.jpg" },
   { title: "Door Concept Art", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Door%20Concept%20Art.jpg" },
   { title: "Finance Company Webinar Linkedin Video Ad", tag: "Portfolio Artwork", category: "Posters", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Finance%20Company%20Webinar%20LinkedIn%20Video%20Ad%20%281%29.jpg" },
@@ -62,6 +60,11 @@ const works: {
   { title: "Storyboard (animatics)", tag: "Portfolio Artwork", category: "Storyboard Animatics", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Storyboard%20%28animatics%29%20%281%29.mp4" },
   { title: "Ts Project 1 Vidhanasoudha", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/TS-PROJECT-1-VIDHANASOUDHA.jpg" },
   { title: "Veena Store", tag: "Portfolio Artwork", category: "Sketching", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/Veena-store.jpg" },
+  { title: "Color Correction", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION.jpg" },
+  { title: "Color Correction 6", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-6.jpg" },
+  { title: "Color Correction 4", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-4.jpg" },
+  { title: "Color Correction 5", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-5.jpg" },
+  { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
 ];
 
 const tools = [
@@ -215,22 +218,52 @@ function Works({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] gap-5">
-          {filtered.map((w) => (
-            <article
-              key={w.title}
-              onClick={() => setSelected(w)}
-              className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all cursor-pointer ${w.span ?? ""}`}
-              style={{ background: w.gradient }}
-            >
-              {w.image && (w.image.toLowerCase().endsWith(".mp4") || w.image.toLowerCase().endsWith(".mov")) ? (
-                <video src={w.image} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              ) : w.image ? (
-                <img src={w.image} alt={w.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              ) : null}
-            </article>
-          ))}
-        </div>
+        {filter === "All" ? (
+          <div className="flex flex-col gap-16">
+            {cats.filter(c => c !== "All").map(cat => {
+              const catWorks = works.filter(w => w.category === cat);
+              if (catWorks.length === 0) return null;
+              return (
+                <div key={cat} className="flex flex-col gap-4">
+                  <h3 className="text-2xl md:text-3xl font-display">{cat}</h3>
+                  <div className="flex overflow-x-auto gap-5 pb-4 scrollbar-hide snap-x">
+                    {catWorks.map(w => (
+                      <article
+                        key={w.title}
+                        onClick={() => setSelected(w)}
+                        className="group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all cursor-pointer shrink-0 w-[85vw] md:w-[400px] h-[280px] snap-center"
+                        style={{ background: w.gradient }}
+                      >
+                        {w.image && (w.image.toLowerCase().endsWith(".mp4") || w.image.toLowerCase().endsWith(".mov")) ? (
+                          <video src={w.image} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        ) : w.image ? (
+                          <img src={w.image} alt={w.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        ) : null}
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] gap-5">
+            {filtered.map((w) => (
+              <article
+                key={w.title}
+                onClick={() => setSelected(w)}
+                className={`group relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] transition-all cursor-pointer ${w.span ?? ""}`}
+                style={{ background: w.gradient }}
+              >
+                {w.image && (w.image.toLowerCase().endsWith(".mp4") || w.image.toLowerCase().endsWith(".mov")) ? (
+                  <video src={w.image} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                ) : w.image ? (
+                  <img src={w.image} alt={w.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                ) : null}
+              </article>
+            ))}
+          </div>
+        )}
 
         {selected && (
           <div 
