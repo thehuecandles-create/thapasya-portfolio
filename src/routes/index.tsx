@@ -17,7 +17,6 @@ const works: {
 }[] = [
   { title: "10 Little Stars", tag: "Portfolio Artwork", category: "Environment Concept Art", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/10-little-stars.jpg" },
   { title: "Character Concept 1a", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%201a.jpg" },
-  { title: "Character Concept 2a", tag: "Portfolio Artwork", category: "Character Designing", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/14th%20Dec%20Characters%202a.jpg" },
   { title: "Building Concept 1", tag: "Portfolio Artwork", category: "3D Asset Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%201.jpg" },
   { title: "Building Concept 2", tag: "Portfolio Artwork", category: "3D Asset Designs", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/19th%20Dec%20buildings%202%20-%20Copy.jpg" },
   { title: "Concept Art 2", tag: "Portfolio Artwork", category: "Digital Painting", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/2.jpg" },
