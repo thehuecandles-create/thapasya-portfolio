@@ -65,6 +65,8 @@ const works: {
   { title: "Color Correction 4", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-4.jpg" },
   { title: "Color Correction 5", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-5.jpg" },
   { title: "Color Correction 1", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/color-correction-1.jpg" },
+  { title: "Color Correction A", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-a.jpg" },
+  { title: "Color Correction B", tag: "Portfolio Artwork", category: "Color Correction", gradient: "var(--gradient-sage)", image: "https://rwknlleecsparayybuek.supabase.co/storage/v1/object/public/portfolio/COLOR-CORRECTION-b.jpg" },
 ];
 
 const tools = [
