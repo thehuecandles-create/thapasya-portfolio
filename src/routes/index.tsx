@@ -68,9 +68,22 @@ const works: {
 ];
 
 const tools = [
-  "Photoshop", "Storyboard Pro", "Blender", "ZBrush", "Maya",
-  "Unreal Engine", "Substance Painter", "After Effects", "Premiere Pro",
-  "Cinema 4D", "3ds Max", "Nuke", "CorelDraw",
+  {
+    category: "2D & Graphic Design",
+    items: ["Adobe Photoshop (Primary)", "Adobe Illustrator (Primary)", "CorelDRAW (Primary)"],
+  },
+  {
+    category: "Video Editing & Motion Graphics",
+    items: ["Adobe Premiere Pro (Primary)", "Adobe After Effects (Primary) with complete knowledge with expertise"],
+  },
+  {
+    category: "3D Production & Compositing",
+    items: ["Autodesk Maya", "Cinema 4D", "3ds Max", "The Foundry Nuke (For advanced node-based compositing)"],
+  },
+  {
+    category: "AI-Assisted Ideation & Generation",
+    items: ["Midjourney", "Leonardo.AI", "Adobe Firefly", "Runway", "Gemini", "ChatGPT", "Copilot", "Canva"],
+  },
 ];
 
 const experience = [
@@ -351,14 +364,21 @@ function About() {
           <h3 className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">
             Software & tools
           </h3>
-          <div className="flex overflow-x-auto whitespace-nowrap gap-2 pb-4 scrollbar-hide">
-            {tools.map((t) => (
-              <span
-                key={t}
-                className="px-3 py-1.5 rounded-full text-sm border border-border bg-background"
-              >
-                {t}
-              </span>
+          <div className="flex flex-col gap-6 pb-4">
+            {tools.map((group) => (
+              <div key={group.category}>
+                <h4 className="text-sm font-semibold mb-3 text-foreground">{group.category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 rounded-full text-sm border border-border bg-background"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
